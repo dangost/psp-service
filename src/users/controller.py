@@ -22,7 +22,6 @@ def registration():
 
 @users_api.route("/api/me", methods=["GET"])
 def me():
-    jwt_token = request.headers['Authorization']
-    user = app.config.users_service.auth(jwt_token)
+    user = app.config.users_service.auth(request.headers)
 
     return jsonify({"login": user.login, "status": "Authorized"})

@@ -69,8 +69,9 @@ class UsersService:
         if self.users_repo.get_by_email(email):
             raise EmailAlreadyExists(email)
 
-    def auth(self, token: str) -> User:
+    def auth(self, headers: dict) -> User:
         try:
+            token = headers['Authorization']
             payload = jwt.decode(token, self._jwt_secret, algorithms=["HS256"])
             login = payload["login"]
         except (DecodeError, KeyError):
