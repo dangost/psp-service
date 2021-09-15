@@ -1,4 +1,4 @@
-from werkzeug.exceptions import HTTPException, Unauthorized
+from werkzeug.exceptions import HTTPException
 
 
 class UserNotFoundException(HTTPException):
