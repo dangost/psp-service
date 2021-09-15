@@ -2,7 +2,7 @@ FROM python:3.9
 
 
 WORKDIR /app
-COPY pyproject.toml poetry.lock .env entrypoint.sh /app/
+COPY pyproject.toml poetry.lock .env /app/
 COPY src/  /app/src
 
 RUN pip install poetry
