@@ -6,7 +6,8 @@ from src.users.controller import users_api
 from src.users.service import UsersService
 
 
-def create_app(config: AppConfig) -> Flask:
+def create_app() -> Flask:
+    config = AppConfig()
     app = Flask("psp-service")
 
     app.register_blueprint(users_api)
