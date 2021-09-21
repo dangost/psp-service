@@ -11,4 +11,4 @@ RUN poetry install
 
 CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:8080", "src.app:create_app()"]
 
-EXPOSE 5000
+EXPOSE 8008
