@@ -23,5 +23,4 @@ def registration():
 @users_api.route("/api/me", methods=["GET"])
 def me():
     user = app.config.users_service.auth(request.headers)
-
     return jsonify({"login": user.login, "status": "Authorized"})

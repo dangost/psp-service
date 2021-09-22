@@ -14,6 +14,7 @@ PyJWT = "^2.1.0"
 gunicorn = "^20.1.0"
 requests = "^2.26.0"
 psycopg = "^3.0b1"
+pg8000 = "^1.21.2"
 
 [tool.poetry.dev-dependencies]
 pytest-dotenv = "^0.5.2"
