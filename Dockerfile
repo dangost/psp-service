@@ -8,6 +8,7 @@ COPY src/  /app/src
 RUN pip install poetry
 RUN poetry config virtualenvs.create false
 RUN poetry install
+RUN pip install psycopg2
 
 CMD ["gunicorn", "-w", "1", "-b", "0.0.0.0:8080", "src.app:create_app()"]
 
