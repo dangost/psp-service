@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Main</title>
+        <script>
+  async function registration() {
+    var url = "http://0.0.0.0:8081/api/registration"
+
+    var email = document.getElementById("email_id").value
+    var login = document.getElementById("login_id").value
+    var password = document.getElementById("pass_id").value
+
+    var inputJson = {"email": email, "login": login, "password": password}
+    var payload = JSON.stringify(inputJson)
+
+    const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: payload,
+    });
+
+    response.json().then(data => {
+      alert(JSON.stringify(data));
+    });
+
+  }
+    </script>
+    </head>
+
+    <body>
+        <input type="text" name="email" id="email_id"><br><br><br>
+        <input type="text" name="login" id="login_id"><br><br><br>
+        <input type="text" name="password" id="pass_id"><br><br><br>
+        <input type="button" onclick="registration()" value="Registration!">
+    </body>
+
+</html>

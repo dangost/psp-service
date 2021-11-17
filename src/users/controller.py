@@ -5,6 +5,11 @@ from src.users.schema import user_login_schema, user_registration_schema, user_s
 users_api = Blueprint("users_controller_api", __name__)
 
 
+@users_api.route("/")
+def index():
+    return open('./web/index.html').read()
+
+
 @users_api.route("/api/auth", methods=['POST'])
 def login():
     user_login = user_login_schema.load(request.json)
