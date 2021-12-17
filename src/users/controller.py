@@ -7,7 +7,7 @@ users_api = Blueprint("users_controller_api", __name__)
 
 @users_api.route("/")
 def index():
-    return open('./web/index.html').read()
+    return "PSP Service"
 
 
 @users_api.route("/api/auth", methods=['POST'])

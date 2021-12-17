@@ -5,11 +5,10 @@ WORKDIR /app
 COPY pyproject.toml poetry.lock /app/
 COPY src/  /app/src
 
-RUN pip install poetry
-RUN poetry config virtualenvs.create false
-RUN poetry install
-RUN pip install psycopg2
+RUN pip install poetry &&\
+    poetry config virtualenvs.create false &&\
+    poetry install
 
-CMD ["gunicorn", "-w", "1", "-b", "0.0.0.0:8080", "src.app:create_app()"]
+CMD ["gunicorn", "-w", "3", "-b", "0.0.0.0:8080", "src.app:create_app()"]
 
 EXPOSE 8080
